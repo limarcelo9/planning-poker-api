@@ -1,6 +1,7 @@
 package br.com.planningpoker.controllers
 
 import br.com.planningpoker.domains.Game
+import br.com.planningpoker.dtos.NewGameDto
 import br.com.planningpoker.services.GameService
 import org.springframework.web.bind.annotation.*
 
@@ -22,7 +23,7 @@ class GameController(
     }
 
     @PostMapping
-    fun create(@RequestBody game: Game){
-       service.create(game)
+    fun create(@RequestBody dto: NewGameDto){
+       service.create(dto)
     }
 }
