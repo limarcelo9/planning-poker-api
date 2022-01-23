@@ -1,10 +1,10 @@
-package br.com.planningpoker.domains
+package br.com.planningpoker.domain
 
 import br.com.planningpoker.enums.EnumGame
 import java.time.LocalDateTime
 
 data class Game(
-    val id: Long? = null,
+    var id: Long? = null,
     val title: String,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val status: EnumGame = EnumGame.ACTIVE,

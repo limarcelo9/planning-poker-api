@@ -1,4 +1,4 @@
-package br.com.planningpoker.domains
+package br.com.planningpoker.domain
 
 import br.com.planningpoker.enums.EnumStory
 import java.time.LocalDateTime
