@@ -5,7 +5,7 @@ import br.com.planningpoker.dto.GameView
 import org.springframework.stereotype.Component
 
 @Component
-class GameViewMapper: Mapper<Game, GameView> {
+class GameViewMapper : Mapper<Game, GameView> {
     override fun map(t: Game): GameView {
         return GameView(
             id = t.id,
@@ -13,5 +13,6 @@ class GameViewMapper: Mapper<Game, GameView> {
             createdAt = t.createdAt,
             status = t.status.name,
             idAuthor = t.author.id.toString()
-        )}
+        )
+    }
 }

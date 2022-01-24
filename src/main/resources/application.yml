@@ -1,13 +1,13 @@
-
 spring:
-    datasource:
-      driverClassName: org.h2.Driver
-      url: jdbc:h2:mem:forum
-      username: sa
-      password:
-    jpa:
-      data-platform: org.hibernate.dialect.H2Dialect
-      properties:
-        hibernate:
-          show_sql: true
-          format_sql: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-3.coqczmwll4zg.sa-east-1.rds.amazonaws.com:3306/appDB
+    username: admin
+    password: y8r4o2o6
+  jpa:
+    data-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        ddl-auto: create
+        show_sql: true
+        format_sql: true

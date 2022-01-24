@@ -37,7 +37,7 @@ class UserService(
 
     fun create(form: NewUserForm) {
         val user = userFormMapper.map(form)
-        user.id = findAll().size.toLong() +1
+        user.id = findAll().size.toLong() + 1
         repository.save(user)
     }
 
