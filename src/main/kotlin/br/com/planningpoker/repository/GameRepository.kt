@@ -1,8 +1,8 @@
 package br.com.planningpoker.repository
 
-import br.com.planningpoker.domain.User
+import br.com.planningpoker.domain.Game
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface UserRepository: JpaRepository<User, Long> {
 
+interface GameRepository : JpaRepository<Game, Long> {
 }

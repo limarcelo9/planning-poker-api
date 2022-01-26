@@ -15,7 +15,7 @@ class GameController(
 
     @GetMapping
     fun list(): List<GameView> {
-        return service.list()
+        return service.findAll()
     }
 
     @GetMapping("/{id}")

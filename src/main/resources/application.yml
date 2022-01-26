@@ -5,9 +5,10 @@ spring:
     username: admin
     password: y8r4o2o6
   jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
     data-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
-        ddl-auto: create
-        show_sql: true
         format_sql: true
