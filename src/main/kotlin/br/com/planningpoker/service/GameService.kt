@@ -3,9 +3,11 @@ package br.com.planningpoker.service
 import br.com.planningpoker.domain.Game
 import br.com.planningpoker.dto.GameView
 import br.com.planningpoker.dto.NewGameForm
+import br.com.planningpoker.dto.UpdateGameForm
 import br.com.planningpoker.mapper.GameFormMapper
 import br.com.planningpoker.mapper.GameViewMapper
 import br.com.planningpoker.repository.GameRepository
+import org.apache.coyote.http11.Constants.a
 import org.springframework.stereotype.Service
 
 @Service
@@ -28,7 +30,14 @@ class GameService(
 
     fun create(form: NewGameForm) {
         val game = gameFormMapper.map(form)
-        game.id = repository.findAll().size.toLong() + 1
         repository.save(game)
+    }
+
+    fun update(form: UpdateGameForm) {
+        var game = repository.findById(form.id).get()
+        if(game != null) {
+            game.title = form.title
+            repository.save(game)
+        }
     }
 }

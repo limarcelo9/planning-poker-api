@@ -1,6 +1,8 @@
 package br.com.planningpoker.domain
 
+import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDateTime
+import java.util.*
 import javax.persistence.*
 
 @Entity
@@ -12,5 +14,5 @@ data class User (
     val password: String,
     var isAuth: Boolean = false,
     var lastAuth: LocalDateTime? = null,
-    val createdAt: LocalDateTime = LocalDateTime.now(),
+    val createdAt: Date = Date(),
 )

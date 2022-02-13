@@ -35,29 +35,4 @@ class UserController(
         return service.create(form)
     }
 
-    @PostMapping("/auth")
-    fun authenticate(@RequestBody dto: AuthenticateDto, response: HttpServletResponse): ResponseEntity<Any>{
-        val user = service.findByUserName(dto.userName)
-            ?:  return ResponseEntity.badRequest()
-                .body(Message("user not found"));
-
-        if(user.password != dto.password) {
-            return ResponseEntity.badRequest()
-                .body(Message("invalid username or password"));
-        }
-
-        val issuer = user.id.toString()
-
-        val jwt = Jwts.builder()
-            .setIssuer(issuer)
-            .setExpiration(Date(System.currentTimeMillis() + 60 * 24 * 1000)) // 1 day
-            .signWith(SignatureAlgorithm.HS512, "secret").compact()
-
-        val cookie = Cookie("jwt", jwt)
-        cookie.isHttpOnly = true
-
-        response.addCookie(cookie)
-
-        return ResponseEntity.ok(Message("is logged"))
-    }
 }
